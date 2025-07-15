@@ -1,0 +1,48 @@
+{
+  "name": "electron-ts-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"electronmon ./dist-electron/main.js --watch=dist-electron\"",
+    "build:main": "tsc --project tsconfig.electron.json",
+    "build": "vite build && npm run build:main && electron-builder",
+    "start": "electron ./dist-electron/main.js"
+  },
+  "build": {
+    "appId": "com.electron.app",
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ]
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
+    "antd": "^5.26.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
+    "sass": "^1.89.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "concurrently": "^9.2.0",
+    "cross-env": "^7.0.3",
+    "electron": "^37.2.1",
+    "electron-builder": "^26.0.12",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electronmon": "^2.0.3",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.4",
+    "wait-on": "^8.0.3"
+  }
+}
